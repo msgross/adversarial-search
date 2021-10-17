@@ -5,7 +5,13 @@ from src.algorithms.search import Search
 
 
 class RandomChoice(Search):
-    """ A random choice 'search' algorithm that just returns any of the available moves """
+    """ A random choice 'search' algorithm that just returns any of the available moves
+
+        RandomChoice(state,depth, time) =
+        {
+            random(actions(state))
+        }
+    """
     def search(self, game, state, depth_remaining=math.inf, time_remaining=math.inf):
         """ Overrides Search.search """
         if game.is_terminal(state, True, True):
