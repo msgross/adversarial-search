@@ -11,5 +11,7 @@ class RandomChoice(Search):
         available_actions = game.actions(state)
         if len(available_actions) == 0:
             return math.inf, None
-        return math.inf, random.choice(game.actions(state))
+        random_move = random.choice(game.actions(state))
+        random_score = game.eval(game.result(state, random_move))
+        return random_score, random_move
 
