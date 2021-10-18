@@ -4,12 +4,13 @@ from src.game import Game
 from src.algorithms.minimax import Minimax
 from math import inf
 
+
 def terminal_side_effect(state, depth_remaining, time_remaining):
     """ Side effect returns true if we reach a terminal state
 
     :param state: the state of the game to evaluate
-    :param depth_remaining: the remaining depth before we stop evaluating
-    :param time_remaining: the time remaining before we stop evaluating
+    :param depth_remaining: true if there is depth remaining
+    :param time_remaining: true if there is time remaining
     :return: true if we are terminating
     """
     if not depth_remaining:
@@ -23,15 +24,20 @@ def terminal_side_effect(state, depth_remaining, time_remaining):
 
 
 def eval_side_effect(state):
+    """ Side effect returns an evaluation given a state
+
+    :param state: the current state to evaluate
+    :return: a score for the current state
+    """
     match state:
         case "a":
             return inf  # this is our root note, it shouldn't get a score
         case "b":
-            return 4
+            return 3
         case "c":
             return 3
         case "d":
-            return 3
+            return 4
         case "e":
             return 3
         case "f":
@@ -55,6 +61,11 @@ def eval_side_effect(state):
 
 
 def actions_side_effect(state):
+    """ Side effect for actions, returns the actions available for a given state
+
+    :param state: the current state
+    :return: actions available for the given state
+    """
     match state:
         case "a":
             return ["a1", "a2", "a3"]
@@ -87,6 +98,12 @@ def actions_side_effect(state):
 
 
 def result_side_effect(state, action):
+    """ Side effect for result, returns the resulting state given an action
+
+    :param state: the current state
+    :param action: the action to take
+    :return: the new state given the action
+    """
     match action:
         # We would normally evaluate this with the
         # state to determine validity, etc, but this is a pre-established graph
@@ -155,20 +172,32 @@ class TestMinimax(TestCase):
         self.minimax_search = Minimax()
 
     def test_search_from_root(self):
+        """ Simple case, start from the root and return the expected minimax solution
+        :return: pass if minimax alg traverses path as expected
+        """
         value, move = self.minimax_search.search(self.mock_game, "a")
         self.assertEqual("a1", move, "This graph should determine a1 to be the optimal move")
         self.assertEqual(3, value, "Valuation of this move is 3")
 
     def test_search_near_terminal(self):
+        """ Simple case, start one one of root's children nodes and return the expected minimax solution
+        :return: pass if minimax alg traverses path as expected
+        """
         value, move = self.minimax_search.search(self.mock_game, "b")
         self.assertEqual("b2", move, "Starting at node b should just return the move to the maximum leaf node")
         self.assertEqual(12, value, "Valuation of this move is 12")
 
     def test_search_at_terminal(self):
+        """ Simple case, start at a terminating node
+        :return: pass if None is returned, since no moves exist in a terminating state
+        """
         value, move = self.minimax_search.search(self.mock_game, "e")
         self.assertIsNone(move)
 
     def test_search_at_depth_limit(self):
+        """ Simple case, apply a depth limit to return a solution
+        :return: pass if optimal move given a depth limit is selected
+        """
         value, move = self.minimax_search.search(self.mock_game, "a", 1)
-        self.assertEqual("a1", move, "Depth limit means we should just end up picking our child max")
+        self.assertEqual("a3", move, "Depth limit means we should just end up picking our child max")
         self.assertEqual(4, value, "Max child node is b, with a value of 4")
