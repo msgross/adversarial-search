@@ -1,9 +1,9 @@
 import math
 from src.game import Game
 
+
 class _SearchMeta(type):
-    """ Metadata for the search type
-    """
+    """ Metadata for the search type """
     def __instancecheck__(cls, instance):
         return cls.__subclasscheck__(type(instance))
 
