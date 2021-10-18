@@ -12,6 +12,8 @@ def terminal_side_effect(state, depth_remaining, time_remaining):
     :param time_remaining: the time remaining before we stop evaluating
     :return: true if we are terminating
     """
+    if not depth_remaining:
+        return True
     end_state_nodes = []
     for alpha in list(map(chr, range(101, 110))):  # iterate from e-m
         end_state_nodes.append(str(alpha))
@@ -165,3 +167,8 @@ class TestMinimax(TestCase):
     def test_search_at_terminal(self):
         value, move = self.minimax_search.search(self.mock_game, "e")
         self.assertIsNone(move)
+
+    def test_search_at_depth_limit(self):
+        value, move = self.minimax_search.search(self.mock_game, "a", 1)
+        self.assertEqual("a1", move, "Depth limit means we should just end up picking our child max")
+        self.assertEqual(3, value, "Max child node is b, with a value of 3")
