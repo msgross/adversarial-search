@@ -27,11 +27,11 @@ def eval_side_effect(state):
         case "a":
             return inf  # this is our root note, it shouldn't get a score
         case "b":
-            return 3
+            return 4
         case "c":
-            return 2
+            return 3
         case "d":
-            return 2
+            return 3
         case "e":
             return 3
         case "f":
@@ -171,4 +171,4 @@ class TestMinimax(TestCase):
     def test_search_at_depth_limit(self):
         value, move = self.minimax_search.search(self.mock_game, "a", 1)
         self.assertEqual("a1", move, "Depth limit means we should just end up picking our child max")
-        self.assertEqual(3, value, "Max child node is b, with a value of 3")
+        self.assertEqual(4, value, "Max child node is b, with a value of 4")
