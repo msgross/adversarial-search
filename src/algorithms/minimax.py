@@ -1,5 +1,6 @@
+import pdb
 from math import inf
-from search import Search
+from src.algorithms.search import Search
 from src.game import Game
 
 
@@ -16,43 +17,41 @@ class Minimax(Search):
 
         }
     """
-    def _max_value(self, game: Game, state, player, depth_remaining, time_remaining):
+    def _max_value(self, game: Game, state, depth_remaining, time_remaining):
         """ Method returns a maximizing value in the state tree, limited either
             by a terminal state or by reaching another cutoff limit
 
         :param game: The game, dictate game rules
         :param state: The current game state
-        :param player: The current player
         :param depth_remaining: Remaining depth before cutoff
         :param time_remaining: Remaining time before cutoff
         :return: tuple with maximized value and move
         """
         if game.is_terminal(state, depth_remaining > 0, time_remaining > 0):
-            return game.eval(state, player), None
+            return game.eval(state), None
         best_value = -inf
         best_move = None
         for action in game.actions(state):
             state_after_action = game.result(state, action)
-            value, move = self._min_value(game, state_after_action, state_after_action.current_player(),
+            value, move = self._min_value(game, state_after_action,
                                           depth_remaining-1, time_remaining)
             if value > best_value:
                 best_value = value
-                best_move = move
+                best_move = action
         return best_value, best_move
 
-    def _min_value(self, game, state, player, depth_remaining, time_remaining):
+    def _min_value(self, game, state, depth_remaining, time_remaining):
         """ Method returns a minimizing value in the state tree, limited either
             by a terminal state or by reaching another cutoff limit
 
         :param game: The game, dictate game rules
         :param state: The current game state
-        :param player: The current player
         :param depth_remaining: Remaining depth before cutoff
         :param time_remaining: Remaining time before cutoff
         :return: tuple with minimized value and move
         """
         if game.is_terminal(state, depth_remaining > 0, time_remaining > 0):
-            return game.eval(state, player), None
+            return game.eval(state), None
         best_value = inf
         best_move = None
         for action in game.actions(state):
@@ -61,10 +60,9 @@ class Minimax(Search):
                                           depth_remaining-1, time_remaining)
             if value < best_value:
                 best_value = value
-                best_move = move
+                best_move = action
         return best_value, best_move
 
     def search(self, game, state, depth_remaining=inf, time_remaining=inf):
         """ Overrides Search.search """
-        value, move = self._max_value(game, state, depth_remaining, time_remaining)
-        return move
+        return self._max_value(game, state, depth_remaining, time_remaining)
