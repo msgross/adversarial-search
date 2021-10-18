@@ -4,9 +4,9 @@ from search import Search
 
 class AlphaBeta(Search):
 
-    def _max_value(self, game, state, player, depth_remaining, time_remaining, alpha=-math.inf, beta=math.inf):
+    def _max_value(self, game, state, depth_remaining, time_remaining, alpha=-math.inf, beta=math.inf):
         if game.is_terminal(state, depth_remaining > 0, time_remaining > 0):
-            return game.eval(state, player), None
+            return game.eval(state), None
         best_value = -math.inf
         best_move = None
         for action in game.actions(state):
@@ -16,16 +16,16 @@ class AlphaBeta(Search):
                                           alpha, beta)
             if value > best_value:
                 best_value = value
-                best_move = move
+                best_move = action
                 alpha = max(alpha, best_value)
             if best_value >= beta:
                 return best_value, best_move
         return best_value, best_move
 
-    def _min_value(self, game, state, player, depth_remaining, time_remaining,  alpha=-math.inf, beta=math.inf):
+    def _min_value(self, game, state, depth_remaining, time_remaining,  alpha=-math.inf, beta=math.inf):
 
         if game.is_terminal(state, depth_remaining > 0, time_remaining > 0):
-            return game.eval(state, player), None
+            return game.eval(state), None
         best_value = math.inf
         best_move = None
         for action in game.actions(state):
@@ -35,11 +35,11 @@ class AlphaBeta(Search):
                                           alpha, beta)
             if value < best_value:
                 best_value = value
-                best_move = move
+                best_move = action
+                beta = min(beta, best_value)
             if best_value <= alpha:
                 return best_value, best_move
         return best_value, best_move
 
     def search(self, game, state, depth_remaining=math.inf, time_remaining=math.inf):
-        value, move = self._max_value(game, state, depth_remaining, time_remaining)
-        return move
+        return self._max_value(game, state, depth_remaining, time_remaining)
