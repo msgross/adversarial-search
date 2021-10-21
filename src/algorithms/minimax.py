@@ -1,4 +1,3 @@
-import pdb
 from math import inf
 from src.algorithms.search import Search
 from src.game import Game
