@@ -1,13 +1,13 @@
-import math
-from search import Search
+from math import inf
+from src.algorithms.search import Search
 
 
 class AlphaBeta(Search):
 
-    def _max_value(self, game, state, depth_remaining, time_remaining, alpha=-math.inf, beta=math.inf):
+    def _max_value(self, game, state, depth_remaining, time_remaining, alpha=-inf, beta=inf):
         if game.is_terminal(state, depth_remaining > 0, time_remaining > 0):
             return game.eval(state), None
-        best_value = -math.inf
+        best_value = -inf
         best_move = None
         for action in game.actions(state):
             state_after_action = game.result(state, action)
@@ -22,11 +22,11 @@ class AlphaBeta(Search):
                 return best_value, best_move
         return best_value, best_move
 
-    def _min_value(self, game, state, depth_remaining, time_remaining,  alpha=-math.inf, beta=math.inf):
+    def _min_value(self, game, state, depth_remaining, time_remaining,  alpha=-inf, beta=inf):
 
         if game.is_terminal(state, depth_remaining > 0, time_remaining > 0):
             return game.eval(state), None
-        best_value = math.inf
+        best_value = inf
         best_move = None
         for action in game.actions(state):
             state_after_action = game.result(state, action)
@@ -41,5 +41,5 @@ class AlphaBeta(Search):
                 return best_value, best_move
         return best_value, best_move
 
-    def search(self, game, state, depth_remaining=math.inf, time_remaining=math.inf):
+    def search(self, game, state, depth_remaining=inf, time_remaining=inf):
         return self._max_value(game, state, depth_remaining, time_remaining)
