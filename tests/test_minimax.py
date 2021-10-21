@@ -144,7 +144,7 @@ class TestMinimax(TestCase):
                           ----         a2 |             ----
                           |               |                |
                           |               |                |
-                        3 b             2 c              2 d
+                        3 b             3 c              4 d
                         /-|-\            /|\              /|\
                     b1 /  |  \ b3       / | \ c3     d1  / | \ d3
                       / b2|   \      c1/  |  \          /  |  \
