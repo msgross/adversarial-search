@@ -1,5 +1,5 @@
 import math
-from src.game import Game
+from game import Game
 
 
 class _SearchMeta(type):

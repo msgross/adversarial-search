@@ -1,5 +1,5 @@
 from math import inf
-from src.algorithms.search import Search
+from algorithms.search import Search
 
 
 class AlphaBeta(Search):

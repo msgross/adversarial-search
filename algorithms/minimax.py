@@ -1,6 +1,6 @@
 from math import inf
-from src.algorithms.search import Search
-from src.game import Game
+from algorithms.search import Search
+from game import Game
 
 
 class Minimax(Search):

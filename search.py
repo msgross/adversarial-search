@@ -1,6 +1,6 @@
 import math
-from src.algorithms.random_choice import RandomChoice
-from src.game import Game
+from algorithms.random_choice import RandomChoice
+from game import Game
 
 
 def search(game: Game, state, depth_remaining=math.inf, time_remaining=math.inf, search_fn=RandomChoice):

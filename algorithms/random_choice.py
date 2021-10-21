@@ -1,7 +1,6 @@
-import math
+from math import inf
 import random
-
-from src.algorithms.search import Search
+from algorithms.search import Search
 
 
 class RandomChoice(Search):
@@ -12,13 +11,13 @@ class RandomChoice(Search):
             random(actions(state))
         }
     """
-    def search(self, game, state, depth_remaining=math.inf, time_remaining=math.inf):
+    def search(self, game, state, depth_remaining=inf, time_remaining=inf):
         """ Overrides Search.search """
         if game.is_terminal(state, True, True):
-            return math.inf, None
+            return inf, None
         available_actions = game.actions(state)
         if len(available_actions) == 0:
-            return math.inf, None
+            return inf, None
         random_move = random.choice(game.actions(state))
         random_score = game.eval(game.result(state, random_move))
         return random_score, random_move

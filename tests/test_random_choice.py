@@ -1,8 +1,8 @@
 from unittest import TestCase
 from mock import create_autospec
 from math import inf
-from src.algorithms.random_choice import RandomChoice
-from src.game import Game
+from algorithms.random_choice import RandomChoice
+from game import Game
 
 
 def result_state(state, action):

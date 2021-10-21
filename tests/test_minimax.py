@@ -1,7 +1,7 @@
 from unittest import TestCase
 from mock import create_autospec
-from src.game import Game
-from src.algorithms.minimax import Minimax
+from game import Game
+from algorithms.minimax import Minimax
 from math import inf
 
 
