@@ -1,2 +1,1 @@
-mock~=4.0.3
 setuptools~=57.0.0

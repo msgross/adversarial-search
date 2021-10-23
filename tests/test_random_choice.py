@@ -1,8 +1,6 @@
 from unittest import TestCase
-from mock import create_autospec
 from math import inf
 from algorithms.random_choice import RandomChoice
-from game import Game
 
 
 def result_state(state, action):
@@ -45,13 +43,10 @@ class TestRandomChoice(TestCase):
 
         :return: success if the move selected is None with a score of infinity
         """
-        mock_game = create_autospec(Game)
-        mock_game.is_terminal.return_value = True
-        mock_game.actions.return_value = []
-        mock_game.eval.return_value = 1
         search = RandomChoice()
         start_state = [[0, 0]]
-        value, move = search.search(mock_game, start_state)
+        value, move = search.search(start_state, lambda state, depth_remains, time_remains: True,
+                                    result_state, lambda state: [], lambda state: 1)
         self.assertIsNone(move)
         self.assertEqual(inf, value, "Value of score must be inf")
 
@@ -61,14 +56,10 @@ class TestRandomChoice(TestCase):
         :return: success if one of the two possible moves are returned with the
                  appropriate score mapped
         """
-        mock_game = create_autospec(Game)
-        mock_game.is_terminal.return_value = False
-        mock_game.actions.return_value = [[0, 1], [1, 0]]
-        mock_game.result.side_effect = result_state
-        mock_game.eval.side_effect = eval_state
         search = RandomChoice()
         start_state = [[0, 0]]
-        value, move = search.search(mock_game, start_state)
+        value, move = search.search(start_state, lambda s, d, t: False,
+                                    result_state, lambda s: [[0, 1], [1, 0]], eval_state)
         self.assertIs((move == [0, 1] or move == [1, 0]), True, "Should be a random move")
         if move == [0, 1]:
             self.assertEqual(value, 1, "Move to [0, 1] should be worth 1 pt")

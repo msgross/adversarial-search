@@ -1,5 +1,5 @@
 from math import inf
-import random
+from random import choice
 from algorithms.search import Search
 
 
@@ -11,14 +11,15 @@ class RandomChoice(Search):
             random(actions(state))
         }
     """
-    def search(self, game, state, depth_remaining=inf, time_remaining=inf):
+    def search(self, state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
+               depth_remaining=inf, time_remaining=inf):
         """ Overrides Search.search """
-        if game.is_terminal(state, True, True):
+        if is_terminal_fn(state, True, True):
             return inf, None
-        available_actions = game.actions(state)
+        available_actions = actions_fn(state)
         if len(available_actions) == 0:
             return inf, None
-        random_move = random.choice(game.actions(state))
-        random_score = game.eval(game.result(state, random_move))
+        random_move = choice(available_actions)
+        random_score = eval_fn(state_result_fn(state, random_move))
         return random_score, random_move
 

@@ -1,5 +1,4 @@
-import math
-from game import Game
+from math import inf
 
 
 class _SearchMeta(type):
@@ -13,11 +12,14 @@ class _SearchMeta(type):
 
 class Search(metaclass=_SearchMeta):
     """ Interface for Search algorithms """
-    def search(self, game: Game, state, depth=math.inf, time_remaining=math.inf):
+    def search(self, state, is_terminal_fn, state_result_fn, actions_fn, eval_fn, depth=inf, time_remaining=inf):
         """ Method returns a search result indicating a recommended move
             and associated score
 
-        :param game: a Game that provides insight into rules and heuristics to determine search behavior
+        :param is_terminal_fn: a function that returns true when a termination condition is fulfilled
+        :param state_result_fn: a function that returns the next state given an action
+        :param actions_fn: a function that returns available actions given a state
+        :param eval_fn: a function that returns an evaluation score on a given state
         :param state: the current state of the game
         :param depth: the tree depth remaining to continue searching, if it hits 0, search should just
                       return the best result
