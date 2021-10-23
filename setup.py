@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='Adversarial_Search',
+    name='adversarial-search',
     url='https://github.com/msgross/adversarial-searching',
     author='Mark Gross',
     author_email='mark@grossremarks.com',
@@ -10,5 +10,5 @@ setup(
     version='0.1',
     license='MIT',
     description='Implements a couple adversarial searches: random, minimax, alphabeta',
-    long_description=open('README').read()
+    long_description=open('README.md').read()
 )
