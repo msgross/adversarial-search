@@ -63,12 +63,17 @@ class Node:
 
 
 class DummyNode(Node):
+    """ A dummy node for a tree--these nodes are essentially dead-ends
+        and are meant to provide something to pass that does nothing
+        when holding on to that memory is unneeded
 
+    """
     def __init__(self, value):
         """ Dummy Node, don't retain a value provided
 
         :param value: ignore
         """
+        super.__init__(value)
         self.value = None
 
     def add_child(self, node_value):
@@ -107,5 +112,3 @@ class DummyNode(Node):
         :return: None
         """
         return None
-
-

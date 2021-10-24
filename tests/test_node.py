@@ -21,7 +21,8 @@ class TestNode(TestCase):
         node = DummyNode("root")
         child_node = node.add_child("child")
         self.assertTrue(node.is_leaf())
-        self.assertListEqual(node.get_children(), [], "Make sure no children are added to dummy node")
+        self.assertListEqual(node.get_children(), [],
+                             "Make sure no children are added to dummy node")
         self.assertIsNone(node.find("child"), "Make sure we don't find children in here")
         self.assertIsNone(node.get_value(), "Make sure we don't retain value in this node")
         self.assertIsNone(child_node.get_value(), "Make sure created child has no value")
@@ -35,9 +36,10 @@ class TestNode(TestCase):
         child_node = node.add_child("child")
         self.assertFalse(node.is_leaf(), "Make sure this node is not a leaf")
         self.assertTrue(child_node.is_leaf(), "New child should be a leaf")
-        self.assertEqual(node.find("child").get_value(), "child", "Find child node successfully")
+        self.assertEqual(node.find("child").get_value(), "child",
+                         "Find child node successfully")
         self.assertEqual(len(node.get_children()), 1, "Should be one child")
         child_node.add_child("grandchild")
         self.assertEqual(len(node.get_children()), 1, "Should still only be one child")
-        self.assertEqual(node.find("grandchild").get_value(), "grandchild", "Find grandchild node successfully")
-
+        self.assertEqual(node.find("grandchild").get_value(), "grandchild",
+                         "Find grandchild node successfully")

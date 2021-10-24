@@ -52,5 +52,6 @@ class TestMinimax(TestCase):
         root = Node("a")
         value, move = self.minimax_search.search("a", terminal_side_effect, result_side_effect,
                                                  actions_side_effect, eval_side_effect, root, 1)
-        self.assertEqual("a3", move, "Depth limit means we should just end up picking our child max")
+        self.assertEqual("a3", move,
+                         "Depth limit means we should just end up picking our child max")
         self.assertEqual(4, value, "Max child node is b, with a value of 4")

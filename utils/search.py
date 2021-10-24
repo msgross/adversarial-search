@@ -1,9 +1,13 @@
+""" Search methods that allow for adversarial searches
+    of the game state
+
+"""
 from math import inf
-from algorithms.random_choice import RandomChoice
 from node import DummyNode
+from algorithms.random_choice import RandomChoice
 
 
-def search(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn, searched_nodes,
+def search(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn, searched_nodes = DummyNode(None),
            depth_remaining=inf, time_remaining=inf, search_fn=RandomChoice):
     """ Method executes a search lookup for a move to execute given a current state
     :param searched_nodes: returns a tree of searched nodes
@@ -19,12 +23,3 @@ def search(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn, searched
     """
     return search_fn.search(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
                             searched_nodes, depth_remaining, time_remaining)
-
-
-def search(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-           depth_remaining=inf, time_remaining=inf, search_fn=RandomChoice):
-    """
-    See above, but retains an empty node that doesn't hold on to searched nodes information
-    """
-    return search_fn.search(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-                            DummyNode(None), depth_remaining, time_remaining)
