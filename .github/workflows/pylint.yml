@@ -19,4 +19,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pip install -r requirements.txt; pip install .; pylint --fail-under=7 **/*.py
+        pip install -r requirements.txt; pip install .; pylint --fail-under=8 **/*.py
