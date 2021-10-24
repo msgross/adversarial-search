@@ -18,10 +18,10 @@ class _SearchMeta(type):
 class Search(metaclass=_SearchMeta):
     """ Interface for Search algorithms """
     def search(self, state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-               depth_remaining=inf, time_remaining=inf):
+               searched_nodes, depth_remaining=inf, time_remaining=inf):
         """ Method returns a search result indicating a recommended move
             and associated score
-
+        :param searched_nodes: maintains a tree of searched nodes during search
         :param is_terminal_fn: a function that returns true when a termination condition
                                 is fulfilled
         :param state_result_fn: a function that returns the next state given an action

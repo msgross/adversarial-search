@@ -14,7 +14,7 @@ class AlphaBeta(Search):
         of the min and max encountered in past branches
     """
     def _max_value(self, state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-                   depth_remaining, time_remaining,
+                   searched_nodes, depth_remaining, time_remaining,
                    alpha=-inf, beta=inf):
         """ Method returns a maximizing value in the state tree that surpasses the current
             beta value if there is one
@@ -41,6 +41,7 @@ class AlphaBeta(Search):
             state_after_action = state_result_fn(state, action)
             value, move = self._min_value(state_after_action,
                                           is_terminal_fn, state_result_fn, actions_fn, eval_fn,
+                                          searched_nodes.add_child(state_after_action),
                                           depth_remaining-1, time_remaining,
                                           alpha, beta)
             if value > best_value:
@@ -52,7 +53,7 @@ class AlphaBeta(Search):
         return best_value, best_move
 
     def _min_value(self, state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-                   depth_remaining, time_remaining,
+                   searched_nodes, depth_remaining, time_remaining,
                    alpha=-inf, beta=inf):
         """ Method returns a minimizing value in the state tree that surpasses the current
             alpha value if there is one
@@ -79,6 +80,7 @@ class AlphaBeta(Search):
             state_after_action = state_result_fn(state, action)
             value, move = self._max_value(state_after_action,
                                           is_terminal_fn, state_result_fn, actions_fn, eval_fn,
+                                          searched_nodes.add_child(state_after_action),
                                           depth_remaining-1, time_remaining,
                                           alpha, beta)
             if value < best_value:
@@ -90,7 +92,7 @@ class AlphaBeta(Search):
         return best_value, best_move
 
     def search(self, state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-               depth_remaining=inf, time_remaining=inf):
+               searched_nodes, depth_remaining=inf, time_remaining=inf):
         """ Overrides Search.search """
         return self._max_value(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-                               depth_remaining, time_remaining)
+                               searched_nodes, depth_remaining, time_remaining)
