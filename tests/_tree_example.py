@@ -57,33 +57,34 @@ def eval_side_effect(state):
     """
     match state:
         case "a":
-            return inf  # this is our root note, it shouldn't get a score
+            val = inf  # this is our root note, it shouldn't get a score
         case "b":
-            return 3
+            val = 3
         case "c":
-            return 3
+            val = 3
         case "d":
-            return 4
+            val = 4
         case "e":
-            return 3
+            val = 3
         case "f":
-            return 12
+            val = 12
         case "g":
-            return 8
+            val = 8
         case "h":
-            return 2
+            val = 2
         case "i":
-            return 4
+            val = 4
         case "j":
-            return 6
+            val = 6
         case "k":
-            return 14
+            val = 14
         case "l":
-            return 5
+            val = 5
         case "m":
-            return 2
+            val = 2
         case _:
-            return -inf  # this shouldn't happen in our simple case
+            val = -inf  # this shouldn't happen in our simple case
+    return val
 
 
 def actions_side_effect(state):
@@ -94,33 +95,34 @@ def actions_side_effect(state):
     """
     match state:
         case "a":
-            return ["a1", "a2", "a3"]
+            val = ["a1", "a2", "a3"]
         case "b":
-            return ["b1", "b2", "b3"]
+            val = ["b1", "b2", "b3"]
         case "c":
-            return ["c1", "c2", "c3"]
+            val = ["c1", "c2", "c3"]
         case "d":
-            return ["d1", "d2", "d3"]
+            val = ["d1", "d2", "d3"]
         case "e":
-            return []
+            val = []
         case "f":
-            return []
+            val = []
         case "g":
-            return []
+            val = []
         case "h":
-            return []
+            val = []
         case "i":
-            return []
+            val = []
         case "j":
-            return []
+            val = []
         case "k":
-            return []
+            val = []
         case "l":
-            return []
+            val = []
         case "m":
-            return []
+            val = []
         case _:
-            return None  # This shouldn't happen
+            val = None  # This shouldn't happen
+    return val
 
 
 def result_side_effect(state, action):
@@ -134,28 +136,29 @@ def result_side_effect(state, action):
         # We would normally evaluate this with the
         # state to determine validity, etc, but this is a pre-established graph
         case "a1":
-            return "b"
+            val = "b"
         case "a2":
-            return "c"
+            val = "c"
         case "a3":
-            return "d"
+            val = "d"
         case "b1":
-            return "e"
+            val = "e"
         case "b2":
-            return "f"
+            val = "f"
         case "b3":
-            return "g"
+            val = "g"
         case "c1":
-            return "h"
+            val = "h"
         case "c2":
-            return "i"
+            val = "i"
         case "c3":
-            return "j"
+            val = "j"
         case "d1":
-            return "k"
+            val = "k"
         case "d2":
-            return "l"
+            val = "l"
         case "d3":
-            return "m"
+            val = "m"
         case _:
-            return None  # default case, shouldn't happen
+            val = None  # default case, shouldn't happen
+    return val

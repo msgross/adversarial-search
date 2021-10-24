@@ -16,9 +16,12 @@ class Minimax(Search):
 
         Minimax(state, depth, time) =
         {
-            EVAL(state, depth, time)        if game is in a terminal state, or depth/time limit reached
-            maximizing_action Minimax(Result(state, action), next_depth, next_time) if maximizing turn
-            minimizing_action Minimax(Result(state, action), next_depth, next_time) if minimizing turn
+            EVAL(state, depth, time)        if game is in a terminal state,
+                                            or depth/time limit reached
+            maximizing_action Minimax(Result(state, action), next_depth, next_time)
+                        if maximizing turn
+            minimizing_action Minimax(Result(state, action), next_depth, next_time)
+                        if minimizing turn
 
         }
     """
@@ -27,7 +30,8 @@ class Minimax(Search):
         """ Method returns a maximizing value in the state tree, limited either
             by a terminal state or by reaching another cutoff limit
 
-        :param is_terminal_fn: a function that returns true when a termination condition is fulfilled
+        :param is_terminal_fn: a function that returns true when a termination condition
+                                is fulfilled
         :param state_result_fn: a function that returns the next state given an action
         :param actions_fn: a function that returns available actions given a state
         :param eval_fn: a function that returns an evaluation score on a given state
@@ -55,7 +59,8 @@ class Minimax(Search):
         """ Method returns a minimizing value in the state tree, limited either
             by a terminal state or by reaching another cutoff limit
 
-        :param is_terminal_fn: a function that returns true when a termination condition is fulfilled
+        :param is_terminal_fn: a function that returns true when a termination condition
+                                is fulfilled
         :param state_result_fn: a function that returns the next state given an action
         :param actions_fn: a function that returns available actions given a state
         :param eval_fn: a function that returns an evaluation score on a given state
