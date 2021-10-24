@@ -23,6 +23,17 @@ class TestRandomChoice(TestCase):
         self.assertIsNone(move)
         self.assertEqual(inf, value, "Value of score must be inf")
 
+    def test_no_legal_moves(self):
+        """ Tests result if random search has no valid moves it can execute
+        :return: success if the move seelcted is None with a score of infinity
+        """
+        search = RandomChoice()
+        start_state = [[0,0]]
+        value, move = search.search(start_state, lambda state, depth_remains, time_remains: False,
+                                    lambda s, a: [], lambda state: [], lambda state: 1)
+        self.assertIsNone(move)
+        self.assertEqual(inf, value, "Value of score must be inf")
+
     def test_random_search(self):
         """ Tests result when a random move is requested
 
