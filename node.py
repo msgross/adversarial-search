@@ -61,18 +61,6 @@ class Node:
         """
         return self.value
 
-    def debug_print(self):
-        """ A debugging printer, prints a formatted tree
-
-        :return: void
-        """
-        print(str(self.value) + ":")
-        for child in self.children:
-            print(str(child.get_value()) + "\t")
-        print("\n")
-        for child in self.children:
-            child.debug_print()
-
 
 class DummyNode(Node):
 
