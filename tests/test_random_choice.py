@@ -1,3 +1,8 @@
+"""
+Random tests are kind of a coin flip (get it?), on one hand, yeah I want to make sure it gets
+covered, on the other, it's random, so it messes with what should be consistent...
+"""
+
 from unittest import TestCase
 from math import inf
 from algorithms.random_choice import RandomChoice
@@ -11,27 +16,7 @@ def result_state(state, action):
     :param action: the action to take, should just be [0,1] or [1,0] possible
     :return: the resulting state given the current state and action
     """
-
-    if action == [0, 1]:
-        return [[0, 1]]
-    elif action == [1, 0]:
-        return [[1, 0]]
-    # This shouldn't happen in this test case
-    return [[0, 0]]
-
-
-def eval_state(state):
-    """ side-effect method to return an evaluation score for the given state
-
-    :param state: the current state to evaluate a score
-    :return: should return 1 if the state is [[0,1]] or 0 if the state is [[1,0]].
-             can return -1 if neither applies, but it shouldn't in this test case
-    """
-    if state == [[0, 1]]:
-        return 1
-    elif state == [[1, 0]]:
-        return 0
-    return -1
+    return [action]
 
 
 class TestRandomChoice(TestCase):
@@ -59,12 +44,7 @@ class TestRandomChoice(TestCase):
         search = RandomChoice()
         start_state = [[0, 0]]
         value, move = search.search(start_state, lambda s, d, t: False,
-                                    result_state, lambda s: [[0, 1], [1, 0]], eval_state)
+                                    result_state, lambda s: [[0, 1], [1, 0]], lambda state: 1)
         self.assertIs((move == [0, 1] or move == [1, 0]), True, "Should be a random move")
-        if move == [0, 1]:
-            self.assertEqual(value, 1, "Move to [0, 1] should be worth 1 pt")
-        elif move == [1, 0]:
-            self.assertEqual(value, 0, "Move to [1, 0] should be worth 0 pt")
-        else:
-            self.fail("Selected move doesn't exist")
+        self.assertEqual(value, 1, "Move should be worth 1 point")
 
