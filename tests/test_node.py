@@ -4,8 +4,8 @@
 """
 
 from unittest import TestCase
-from node import Node
-from node import DummyNode
+from utils.node import Node
+from utils.node import DummyNode
 
 
 class TestNode(TestCase):

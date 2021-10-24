@@ -1,6 +1,6 @@
 from unittest import TestCase
 from algorithms.minimax import Minimax
-from node import Node
+from utils.node import Node
 from tests._tree_example import eval_side_effect
 from tests._tree_example import terminal_side_effect
 from tests._tree_example import actions_side_effect

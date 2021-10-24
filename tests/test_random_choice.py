@@ -5,7 +5,7 @@ covered, on the other, it's random, so it messes with what should be consistent.
 from unittest import TestCase
 from math import inf
 from algorithms.random_choice import RandomChoice
-from node import Node
+from utils.node import Node
 
 
 class TestRandomChoice(TestCase):
@@ -49,6 +49,5 @@ class TestRandomChoice(TestCase):
         value, move = search.search(start_state, lambda s, d, t: False,
                                     lambda s, a: [a], lambda s: [[0, 1], [1, 0]],
                                     lambda state: 1, root)
-        self.assertIs((move == [0, 1] or move == [1, 0]), True, "Should be a random move")
+        self.assertIs((move in ([0, 1], [1, 0])), True, "Should be a random move")
         self.assertEqual(value, 1, "Move should be worth 1 point")
-
