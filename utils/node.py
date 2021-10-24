@@ -73,7 +73,7 @@ class DummyNode(Node):
 
         :param value: ignore
         """
-        super.__init__(value)
+        super().__init__(value)
         self.value = None
 
     def add_child(self, node_value):
