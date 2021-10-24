@@ -21,7 +21,7 @@ jobs:
     - name: Run coverage
       run: |
         coverage run -m pytest
-        cat .coverage
+        coverage report
     - name: Upload coverage
       uses: codecov/codecov-action@v2
       with:
