@@ -1,4 +1,3 @@
-# pylint: disable=anomalous-backslash-in-string
 """
         Define a graph we know the answer to, make sure we hit the right answer
         This is the same test as the one used in minimax, because both should
