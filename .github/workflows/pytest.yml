@@ -3,7 +3,7 @@ name: PyTest
 on: [push]
 
 jobs:
-  coverage:
+  test:
 
     runs-on: ubuntu-latest
 
