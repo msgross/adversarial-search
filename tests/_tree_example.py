@@ -56,8 +56,6 @@ def eval_side_effect(state):
     :return: a score for the current state
     """
     match state:
-        case "a":
-            val = inf  # this is our root note, it shouldn't get a score
         case "b":
             val = 3
         case "c":
@@ -83,7 +81,7 @@ def eval_side_effect(state):
         case "m":
             val = 2
         case _:
-            val = -inf  # this shouldn't happen in our simple case
+            val = inf  # case a is our root, so it doesn't have a value
     return val
 
 
@@ -102,26 +100,8 @@ def actions_side_effect(state):
             val = ["c1", "c2", "c3"]
         case "d":
             val = ["d1", "d2", "d3"]
-        case "e":
-            val = []
-        case "f":
-            val = []
-        case "g":
-            val = []
-        case "h":
-            val = []
-        case "i":
-            val = []
-        case "j":
-            val = []
-        case "k":
-            val = []
-        case "l":
-            val = []
-        case "m":
-            val = []
         case _:
-            val = None  # This shouldn't happen
+            val = []  # Cases e-m are leaves, so should have no possible actions
     return val
 
 
