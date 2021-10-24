@@ -2,21 +2,9 @@
 Random tests are kind of a coin flip (get it?), on one hand, yeah I want to make sure it gets
 covered, on the other, it's random, so it messes with what should be consistent...
 """
-
 from unittest import TestCase
 from math import inf
 from algorithms.random_choice import RandomChoice
-
-
-def result_state(state, action):
-    """ side-effect method to return a simple resulting state given a preset
-        selection of possible actions
-
-    :param state: the current state -- unused
-    :param action: the action to take, should just be [0,1] or [1,0] possible
-    :return: the resulting state given the current state and action
-    """
-    return [action]
 
 
 class TestRandomChoice(TestCase):
@@ -31,7 +19,7 @@ class TestRandomChoice(TestCase):
         search = RandomChoice()
         start_state = [[0, 0]]
         value, move = search.search(start_state, lambda state, depth_remains, time_remains: True,
-                                    result_state, lambda state: [], lambda state: 1)
+                                    lambda s, a: [a], lambda state: [], lambda state: 1)
         self.assertIsNone(move)
         self.assertEqual(inf, value, "Value of score must be inf")
 
@@ -44,7 +32,7 @@ class TestRandomChoice(TestCase):
         search = RandomChoice()
         start_state = [[0, 0]]
         value, move = search.search(start_state, lambda s, d, t: False,
-                                    result_state, lambda s: [[0, 1], [1, 0]], lambda state: 1)
+                                    lambda s, a: [a], lambda s: [[0, 1], [1, 0]], lambda state: 1)
         self.assertIs((move == [0, 1] or move == [1, 0]), True, "Should be a random move")
         self.assertEqual(value, 1, "Move should be worth 1 point")
 
