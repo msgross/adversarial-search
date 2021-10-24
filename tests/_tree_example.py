@@ -3,17 +3,17 @@
         This is the same test as the one used in minimax, because both should
         probably come to the same answer in this case
                                           a
-                                 a1   /---|----\    a3
-                              /-------    |     -------\
+                                 a1   /---|----\\    a3
+                              /-------    |     -------\\
                           ----         a2 |             ----
                           |               |                |
                           |               |                |
                         3 b             3 c              4 d
-                        /-|-\            /|\              /|\
-                    b1 /  |  \ b3       / | \ c3     d1  / | \ d3
-                      / b2|   \      c1/  |  \          /  |  \
-                     /    |    \      / c2|   \        / d2|   \
-                    /     |     \    /    |    \      /    |    \
+                        /-|-\\            /|\\              /|\\
+                    b1 /  |  \\ b3       / | \\ c3     d1  / | \\ d3
+                      / b2|   \\      c1/  |  \\          /  |  \\
+                     /    |    \\      / c2|   \\        / d2|   \\
+                    /     |     \\    /    |    \\      /    |    \\
                    -             -  -           -    -     |     -
                  3 e    12f    8 g  2 h   4i    6j   14k   5l    2m
         Note that node k, with a score of 14 doesn't get selected. This is because
