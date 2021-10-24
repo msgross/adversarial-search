@@ -13,7 +13,8 @@ class AlphaBeta(Search):
         """ Method returns a maximizing value in the state tree that surpasses the current
             beta value if there is one
 
-        :param is_terminal_fn: a function that returns true when a termination condition is fulfilled
+        :param is_terminal_fn: a function that returns true when a termination condition
+                                is fulfilled
         :param state_result_fn: a function that returns the next state given an action
         :param actions_fn: a function that returns available actions given a state
         :param eval_fn: a function that returns an evaluation score on a given state
@@ -22,8 +23,8 @@ class AlphaBeta(Search):
         :param time_remaining:  The remaining time
         :param alpha: the value of the most maximizing choice we've found--min searches should
                         at least reach this level
-        :param beta: the value of the most minimizing choice we've found--max searches should at most reach
-                        this level
+        :param beta: the value of the most minimizing choice we've found--max searches should
+                    at most reach this level
         :return: value, move tuple that is maximizing
         """
         if is_terminal_fn(state, depth_remaining > 0, time_remaining > 0):
@@ -50,7 +51,8 @@ class AlphaBeta(Search):
         """ Method returns a minimizing value in the state tree that surpasses the current
             alpha value if there is one
 
-        :param is_terminal_fn: a function that returns true when a termination condition is fulfilled
+        :param is_terminal_fn: a function that returns true when a termination condition
+                                is fulfilled
         :param state_result_fn: a function that returns the next state given an action
         :param actions_fn: a function that returns available actions given a state
         :param eval_fn: a function that returns an evaluation score on a given state
@@ -59,8 +61,8 @@ class AlphaBeta(Search):
         :param time_remaining:  The remaining time
         :param alpha: the value of the most maximizing choice we've found--min searches should
                         at least reach this level
-        :param beta: the value of the most minimizing choice we've found--max searches should at most reach
-                        this level
+        :param beta: the value of the most minimizing choice we've found--max searches should
+                        at most reach this level
         :return: value, move tuple that is maximizing
         """
         if is_terminal_fn(state, depth_remaining > 0, time_remaining > 0):

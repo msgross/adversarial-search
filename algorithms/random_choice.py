@@ -22,4 +22,3 @@ class RandomChoice(Search):
         random_move = choice(available_actions)
         random_score = eval_fn(state_result_fn(state, random_move))
         return random_score, random_move
-
