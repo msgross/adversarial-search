@@ -1,3 +1,9 @@
+"""
+An alpha-beta pruning search algorithm
+
+This provides a pruning search that cuts short searches where possible when
+nothing better could be possibly encountered
+"""
 from math import inf
 from algorithms.search import Search
 

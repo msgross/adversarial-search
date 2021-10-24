@@ -1,3 +1,9 @@
+"""
+Provides a random choice search algorithm
+
+This random choice will just pick a random legal move to take
+if one exists
+"""
 from math import inf
 from random import choice
 from algorithms.search import Search

@@ -1,3 +1,10 @@
+"""
+Method implements a minimax search algorithm
+
+This algorithm will find the best move if given unlimited time and depth,
+but could take a while. Limiting the depth or time will result in faster
+calculation times, but could result in less-than-optimal moves
+"""
 from math import inf
 from algorithms.search import Search
 

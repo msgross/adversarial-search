@@ -1,3 +1,8 @@
+"""
+Provides an interface for adversarial searches. Implementing classes
+will provide an algorithm for searching through some state graph for
+a score and suggested move to make through the graph
+"""
 from math import inf
 
 
@@ -27,5 +32,5 @@ class Search(metaclass=_SearchMeta):
                                 if it hits 0, search should just return the best result
         :param time_remaining: the remaining time to continue searching,
                                 if the time hits 0, search should just return the best result
-        :return: a tuple of score, move
+        :return: a tuple of score, move to make
         """
