@@ -5,6 +5,7 @@ covered, on the other, it's random, so it messes with what should be consistent.
 from unittest import TestCase
 from math import inf
 from algorithms.random_choice import RandomChoice
+from node import Node
 
 
 class TestRandomChoice(TestCase):
@@ -18,8 +19,9 @@ class TestRandomChoice(TestCase):
         """
         search = RandomChoice()
         start_state = [[0, 0]]
+        root = Node(start_state)
         value, move = search.search(start_state, lambda state, depth_remains, time_remains: True,
-                                    lambda s, a: [a], lambda state: [], lambda state: 1)
+                                    lambda s, a: [a], lambda state: [], lambda state: 1, root)
         self.assertIsNone(move)
         self.assertEqual(inf, value, "Value of score must be inf")
 
@@ -28,9 +30,10 @@ class TestRandomChoice(TestCase):
         :return: success if the move seelcted is None with a score of infinity
         """
         search = RandomChoice()
-        start_state = [[0,0]]
+        start_state = [[0, 0]]
+        root = Node(start_state)
         value, move = search.search(start_state, lambda state, depth_remains, time_remains: False,
-                                    lambda s, a: [], lambda state: [], lambda state: 1)
+                                    lambda s, a: [], lambda state: [], lambda state: 1, root)
         self.assertIsNone(move)
         self.assertEqual(inf, value, "Value of score must be inf")
 
@@ -42,8 +45,10 @@ class TestRandomChoice(TestCase):
         """
         search = RandomChoice()
         start_state = [[0, 0]]
+        root = Node(start_state)
         value, move = search.search(start_state, lambda s, d, t: False,
-                                    lambda s, a: [a], lambda s: [[0, 1], [1, 0]], lambda state: 1)
+                                    lambda s, a: [a], lambda s: [[0, 1], [1, 0]],
+                                    lambda state: 1, root)
         self.assertIs((move == [0, 1] or move == [1, 0]), True, "Should be a random move")
         self.assertEqual(value, 1, "Move should be worth 1 point")
 
