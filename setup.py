@@ -12,7 +12,7 @@ def get_description(filename):
     :param filename: The file to try to open for long description
     :return: string
     """
-    with open(filename, 'r') as file:
+    with open(filename, mode='r', encoding="utf-8") as file:
         return file.read()
     return ""
 
