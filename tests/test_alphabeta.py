@@ -23,13 +23,16 @@ class TestAlphaBeta(TestCase):
         self.assertEqual(3, value, "Valuation of this move is 3")
 
     def test_search_near_terminal(self):
-        """ Simple case, start one one of root's children nodes and return the expected minimax solution
+        """ Simple case, start one one of root's children nodes and return
+            the expected minimax solution
         :return: pass if minimax alg traverses path as expected
         """
         value, move = self.minimax_search.search("b", terminal_side_effect, result_side_effect,
                                                  actions_side_effect, eval_side_effect)
-        self.assertEqual("b2", move, "Starting at node b should just return the move to the maximum leaf node")
-        self.assertEqual(12, value, "Valuation of this move is 12")
+        self.assertEqual("b2", move,
+                         "Starting at node b should just return the move to the maximum leaf node")
+        self.assertEqual(12, value,
+                         "Valuation of this move is 12")
 
     def test_search_at_terminal(self):
         """ Simple case, start at a terminating node
