@@ -3,7 +3,7 @@ name: PyCoverage
 on: [push]
 
 jobs:
-  lint:
+  coverage:
 
     runs-on: ubuntu-latest
 
@@ -19,6 +19,6 @@ jobs:
         pip install coverage
     - name: Run coverage
       run: |
-        coverage run -m tests
+        coverage run
     - name: Upload coverage
       uses: codecov/codecov-action@v2
