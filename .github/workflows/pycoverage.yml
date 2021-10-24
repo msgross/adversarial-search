@@ -3,7 +3,7 @@ name: PyCoverage
 on: [push]
 
 jobs:
-  lint:
+  coverage:
 
     runs-on: ubuntu-latest
 
