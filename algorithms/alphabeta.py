@@ -82,7 +82,7 @@ class AlphaBeta(Search):
         return best_value, best_move
 
     def search(self, state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
-               depth_remaining=inf, time_remaining=inf):
+               depth_remaining=inf, time_remaining=inf): 
         """ Overrides Search.search """
         return self._max_value(state, is_terminal_fn, state_result_fn, actions_fn, eval_fn,
                                depth_remaining, time_remaining)
