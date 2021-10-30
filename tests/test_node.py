@@ -26,6 +26,8 @@ class TestNode(TestCase):
         self.assertIsNone(node.find("child"), "Make sure we don't find children in here")
         self.assertIsNone(node.get_value(), "Make sure we don't retain value in this node")
         self.assertIsNone(child_node.get_value(), "Make sure created child has no value")
+        self.assertEqual('Dummy', node.debug_out(),
+                         "Check to make sure dummy nodes output that they are dummy nodes")
 
     def test_node(self):
         """ Test our node to make sure that child and grandchild values can be found

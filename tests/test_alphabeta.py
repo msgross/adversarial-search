@@ -260,6 +260,7 @@ class TestAlphaBeta(TestCase):
                          "Make sure minimax and alphabeta choose the same move, despite pruning")
 
     def test_debug_tree(self):
+        """A quick test to make sure debug tree makes sense"""
         root = Node("a")
         value, move = self.search_alg.search("a", beta_pruning_terminal_state, beta_pruning_result,
                                              beta_pruning_actions, beta_pruning_eval, root)
