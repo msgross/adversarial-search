@@ -145,6 +145,21 @@ def beta_pruning_result(state, action):
     return val
 
 
+""" Expected debug statement for node printing test """
+expected_out = "\nparent-a:\n\
+b	c	\n\
+parent-b:\n\
+d	e	\n\
+parent-d:\n\
+h	i	\n\
+parent-e:\n\
+j	k	\n\
+parent-c:\n\
+f	\n\
+parent-f:\n\
+l	m\t"
+
+
 class TestAlphaBeta(TestCase):
     """ Tests the alpha-beta pruning search algorithm
 
@@ -243,3 +258,10 @@ class TestAlphaBeta(TestCase):
                          "Make sure minimax and alphabeta choose the same move, despite pruning")
         self.assertEqual(minimax_move, move,
                          "Make sure minimax and alphabeta choose the same move, despite pruning")
+
+    def test_debug_tree(self):
+        root = Node("a")
+        value, move = self.search_alg.search("a", beta_pruning_terminal_state, beta_pruning_result,
+                                             beta_pruning_actions, beta_pruning_eval, root)
+        d_out = root.debug_out()
+        self.assertEqual(expected_out, d_out, "Debug statement should output the same")

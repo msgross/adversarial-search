@@ -66,15 +66,13 @@ class Node:
         :return: void
         """
         if not self.is_leaf():
-            out_val = "parent-" + str(self.value) + ":\n"
+            out_val = "\nparent-" + str(self.value) + ":\n"
         else:
             out_val = ""
         for child in self.children:
             out_val = out_val + str(child.get_value()) + "\t"
-        out_val = out_val + "\n"
         for child in self.children:
             out_val = out_val + child.debug_out()
-        out_val = out_val + "\n"
         return out_val
 
 
@@ -128,3 +126,10 @@ class DummyNode(Node):
         :return: None
         """
         return None
+
+    def debug_out(self):
+        """ Override, just return 'Dummy' string
+
+        :return:
+        """
+        return "Dummy"
