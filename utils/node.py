@@ -61,6 +61,22 @@ class Node:
         """
         return self.value
 
+    def debug_out(self):
+        """ A debugging printer, prints a formatted tree
+        :return: void
+        """
+        if not self.is_leaf():
+            out_val = "parent-" + str(self.value) + ":\n"
+        else:
+            out_val = ""
+        for child in self.children:
+            out_val = out_val + str(child.get_value()) + "\t"
+        out_val = out_val + "\n"
+        for child in self.children:
+            out_val = out_val + child.debug_out()
+        out_val = out_val + "\n"
+        return out_val
+
 
 class DummyNode(Node):
     """ A dummy node for a tree--these nodes are essentially dead-ends

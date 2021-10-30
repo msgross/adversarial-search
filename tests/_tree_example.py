@@ -142,3 +142,4 @@ def result_side_effect(state, action):
         case _:
             val = None  # default case, shouldn't happen
     return val
+
