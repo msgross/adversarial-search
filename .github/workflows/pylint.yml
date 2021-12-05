@@ -19,5 +19,4 @@ jobs:
         $HOME/.local/bin/poetry install
     - name: Analysing the code with pylint
       run: |
-        $HOME/.local/bin/poetry shell
-        pylint --fail-under=8 **/*.py
+        $HOME/.local/bin/poetry run pylint --fail-under=8 **/*.py
