@@ -15,13 +15,12 @@ jobs:
         python-version: 3.10.0
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install pytest
-        pip install coverage
+        curl -sSL https://install.python-poetry.org | python3 -
+        $HOME/.local/bin/poetry install
     - name: Run coverage
       run: |
-        coverage run -m pytest
-        coverage xml
+        $HOME/.local/bin/poetry run coverage run -m pytest
+        $HOME/.local/bin/poetry run coverage run xml
     - name: Upload coverage
       uses: codecov/codecov-action@v2
       with:
