@@ -4,6 +4,10 @@ version = "0.1.0"
 description = "Adversarial search algorithms"
 authors = ["mgross <mark@grossremarks.com>"]
 license = "MIT"
+packages = [
+    { include = "utils " },
+    { include  = "algorithms" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
