@@ -20,7 +20,7 @@ jobs:
     - name: Run coverage
       run: |
         $HOME/.local/bin/poetry run coverage run -m pytest
-        $HOME/.local/bin/poetry run coverage run xml
+        $HOME/.local/bin/poetry run coverage xml
     - name: Upload coverage
       uses: codecov/codecov-action@v2
       with:
