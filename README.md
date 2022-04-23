@@ -6,7 +6,7 @@ Algorithms for adversarial searching
 * Minimax
 * Alphabeta
 ## Dependencies
-These dependencies are handled through poetry. Refer to (pyproject.toml)[pyproject.toml] for dependencies needed for manual installation
+These dependencies are handled through poetry. Refer to [pyproject.toml](./pyproject.toml) for dependencies needed for manual installation
 ## Setup
 Setting up the project with poetry is fairly straightforward. 
 ### Install
