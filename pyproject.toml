@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "adv-search"
+name = "advsearch"
 version = "0.1.0"
 description = "Adversarial search algorithms"
 authors = ["mgross <mark@grossremarks.com>"]
