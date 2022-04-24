@@ -1,7 +1,7 @@
-﻿minimax
-=======
+algorithms.alphabeta
+====================
 
-.. automodule:: minimax
+.. automodule:: algorithms.alphabeta
 
    
    
@@ -17,7 +17,7 @@
 
    .. autosummary::
    
-      Minimax
+      AlphaBeta
    
    
 

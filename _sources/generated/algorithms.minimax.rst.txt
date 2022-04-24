@@ -1,7 +1,7 @@
-﻿search
-======
+algorithms.minimax
+==================
 
-.. automodule:: search
+.. automodule:: algorithms.minimax
 
    
    
@@ -17,7 +17,7 @@
 
    .. autosummary::
    
-      Search
+      Minimax
    
    
 

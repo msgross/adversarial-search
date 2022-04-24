@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>minimax &mdash; adversarial-search 1.0.0 documentation</title>
+  <title>algorithms.alphabeta &mdash; adversarial-search 1.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="random_choice" href="random_choice.html" />
-    <link rel="prev" title="alphabeta" href="alphabeta.html" /> 
+    <link rel="next" title="algorithms.minimax" href="algorithms.minimax.html" />
+    <link rel="prev" title="algorithms" href="algorithms.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,10 +40,14 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="search.html">search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alphabeta.html">alphabeta</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">minimax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random_choice.html">random_choice</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="algorithms.html">algorithms</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">algorithms.alphabeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.minimax.html">algorithms.minimax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.random_choice.html">algorithms.random_choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.search.html">algorithms.search</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
 </ul>
 </li>
 </ul>
@@ -63,9 +67,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../api.html">API</a> &raquo;</li>
-      <li>minimax</li>
+          <li><a href="algorithms.html">algorithms</a> &raquo;</li>
+      <li>algorithms.alphabeta</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/generated/minimax.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/algorithms.alphabeta.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -73,12 +78,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-minimax">
-<span id="minimax"></span><h1>minimax<a class="headerlink" href="#module-minimax" title="Permalink to this headline"></a></h1>
-<p>Method implements a minimax search algorithm</p>
-<p>This algorithm will find the best move if given unlimited time and depth,
-but could take a while. Limiting the depth or time will result in faster
-calculation times, but could result in less-than-optimal moves</p>
+  <section id="module-algorithms.alphabeta">
+<span id="algorithms-alphabeta"></span><h1>algorithms.alphabeta<a class="headerlink" href="#module-algorithms.alphabeta" title="Permalink to this headline"></a></h1>
+<p>An alpha-beta pruning search algorithm</p>
+<p>This provides a pruning search that cuts short searches where possible when
+nothing better could be possibly encountered</p>
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -86,8 +90,8 @@ calculation times, but could result in less-than-optimal moves</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Minimax</span></code>()</p></td>
-<td><p>Minimax Search algorithm, basically portrays a state graph that assumes that both players are playing optimally.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlphaBeta</span></code>()</p></td>
+<td><p>Implements a basic Alpha-Beta pruning search Meant to cut down on searches needed by keeping track of the min and max encountered in past branches</p></td>
 </tr>
 </tbody>
 </table>
@@ -97,8 +101,8 @@ calculation times, but could result in less-than-optimal moves</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="alphabeta.html" class="btn btn-neutral float-left" title="alphabeta" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="random_choice.html" class="btn btn-neutral float-right" title="random_choice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="algorithms.html" class="btn btn-neutral float-left" title="algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="algorithms.minimax.html" class="btn btn-neutral float-right" title="algorithms.minimax" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -3,8 +3,7 @@ API
 
 .. autosummary::
     :toctree:   generated
+    :recursive:
 
-    search
-    alphabeta
-    minimax
-    random_choice
+    algorithms
+    utils

@@ -1,0 +1,34 @@
+﻿algorithms
+==========
+
+.. automodule:: algorithms
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   algorithms.alphabeta
+   algorithms.minimax
+   algorithms.random_choice
+   algorithms.search
+

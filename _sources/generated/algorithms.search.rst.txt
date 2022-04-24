@@ -1,0 +1,29 @@
+algorithms.search
+=================
+
+.. automodule:: algorithms.search
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Search
+   
+   
+
+   
+   
+   
+
+
+

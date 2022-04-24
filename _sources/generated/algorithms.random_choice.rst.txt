@@ -1,7 +1,7 @@
-﻿random\_choice
-==============
+algorithms.random\_choice
+=========================
 
-.. automodule:: random_choice
+.. automodule:: algorithms.random_choice
 
    
    

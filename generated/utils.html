@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>search &mdash; adversarial-search 1.0.0 documentation</title>
+  <title>utils &mdash; adversarial-search 1.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alphabeta" href="alphabeta.html" />
-    <link rel="prev" title="API" href="../api.html" /> 
+    <link rel="next" title="utils.node" href="utils.node.html" />
+    <link rel="prev" title="algorithms.search" href="algorithms.search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,10 +40,11 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alphabeta.html">alphabeta</a></li>
-<li class="toctree-l2"><a class="reference internal" href="minimax.html">minimax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random_choice.html">random_choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html">algorithms</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.node.html">utils.node</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -63,9 +64,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../api.html">API</a> &raquo;</li>
-      <li>search</li>
+      <li>utils</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/generated/search.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/utils.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -73,20 +74,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-search">
-<span id="search"></span><h1>search<a class="headerlink" href="#module-search" title="Permalink to this headline"></a></h1>
-<p>Provides an interface for adversarial searches. Implementing classes
-will provide an algorithm for searching through some state graph for
-a score and suggested move to make through the graph</p>
-<p class="rubric">Classes</p>
+  <section id="module-utils">
+<span id="utils"></span><h1>utils<a class="headerlink" href="#module-utils" title="Permalink to this headline"></a></h1>
+<p class="rubric">Modules</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Search</span></code>()</p></td>
-<td><p>Interface for Search algorithms</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="utils.node.html#module-utils.node" title="utils.node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.node</span></code></a></p></td>
+<td><p>Node class, can be assembled into a tree</p></td>
 </tr>
 </tbody>
 </table>
@@ -96,8 +94,8 @@ a score and suggested move to make through the graph</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="alphabeta.html" class="btn btn-neutral float-right" title="alphabeta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="algorithms.search.html" class="btn btn-neutral float-left" title="algorithms.search" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.node.html" class="btn btn-neutral float-right" title="utils.node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
