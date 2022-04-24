@@ -1,0 +1,38 @@
+name: Documentation
+on: [push]
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version 3.10.0
+      - name: Install dependencies
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          $HOME/.local/bin/poetry install
+      - name: Generate documentation
+        run: |
+          mkdir -p docs/build
+          poetry run sphinx-build -b html docs/source/ docs/build/html
+      - name: Create documentation artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: adv-search-docs
+          path: docs/build/html
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v2
+        with:
+          name: adv-search-docs
+      - name: GH_Pages_Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build/html
+
+      
