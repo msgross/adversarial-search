@@ -1,0 +1,29 @@
+﻿minimax
+=======
+
+.. automodule:: minimax
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Minimax
+   
+   
+
+   
+   
+   
+
+
+

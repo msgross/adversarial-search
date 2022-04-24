@@ -18,6 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
     <link rel="prev" title="Adversarial Search Algorithms" href="index.html" /> 
 </head>
 
@@ -46,6 +47,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#run-tests">Run Tests</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 
         </div>
@@ -80,7 +82,13 @@
 <h3>Poetry Installation (<strong>Preferred</strong>)<a class="headerlink" href="#poetry-installation-preferred" title="Permalink to this headline"></a></h3>
 <p>This assumes that poetry is already installed and configured on your machine.</p>
 <p>You can add this project to a poetry installation via:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">poetry add git+https://github.com/msgross/adversarial-search.git</span>
+</pre></div>
+</div>
 <p>or:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">poetry add git+git@github.com:msgross/adversarial-search.git</span>
+</pre></div>
+</div>
 <p>if ssh is configured.</p>
 <p>Docker Installation
 We include a Dockerfile that handles building the package into a .whl file and installing it with pip,
@@ -89,13 +97,24 @@ you can invoke it by cloning the project down and running <code class="code docu
 <section id="pip-installation-in-work">
 <h3>Pip Installation (<strong>In Work</strong>)<a class="headerlink" href="#pip-installation-in-work" title="Permalink to this headline"></a></h3>
 <p>This isn’t officially supported, but if you clone the project down,</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/msgross/adversarial-search.git</span>
+</pre></div>
+</div>
 <p>you can then run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">poetry update</span>
+<span class="go">poetry build</span>
+<span class="go">pip install &lt;path_to_dist&gt;/*.whl</span>
+</pre></div>
+</div>
 <p>to install it in your environment.</p>
 </section>
 </section>
 <section id="run-tests">
 <h2>Run Tests<a class="headerlink" href="#run-tests" title="Permalink to this headline"></a></h2>
-<p>This project uses <code class="code docutils literal notranslate"><span class="pre">pytest`</span></code> to define test cases–to run with poetry:</p>
+<p>This project uses <code class="code docutils literal notranslate"><span class="pre">pytest</span></code> to define test cases–to run with poetry:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">poetry run pytest</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -104,6 +123,7 @@ you can invoke it by cloning the project down and running <code class="code docu
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Adversarial Search Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

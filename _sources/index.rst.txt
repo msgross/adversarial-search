@@ -21,7 +21,7 @@ Contents
 
 .. toctree::
    setup
-
+   api
 Indices and tables
 ==================
 

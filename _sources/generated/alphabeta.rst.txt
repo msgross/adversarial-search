@@ -1,0 +1,29 @@
+﻿alphabeta
+=========
+
+.. automodule:: alphabeta
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      AlphaBeta
+   
+   
+
+   
+   
+   
+
+
+

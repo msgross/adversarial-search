@@ -1,0 +1,29 @@
+﻿random\_choice
+==============
+
+.. automodule:: random_choice
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      RandomChoice
+   
+   
+
+   
+   
+   
+
+
+
