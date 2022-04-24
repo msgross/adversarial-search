@@ -5,12 +5,22 @@
 
 Adversarial Search Algorithms
 ==============================================
+The **adversarial-search** algorithm package is a Python library for running minimax and alphabeta
+search algorithms against a given state and a set of actions. Does it work? Maybe.
+
+.. note::
+
+   This project is under semi-active development as it undergoes testing in use. If you find an issue, feel free to reach out!
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+Contents
+-------------
 
+.. toctree::
+   setup
 
 Indices and tables
 ==================
