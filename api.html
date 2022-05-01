@@ -86,6 +86,275 @@
 </tr>
 </tbody>
 </table>
+<span class="target" id="module-algorithms.alphabeta"></span><p>An alpha-beta pruning search algorithm</p>
+<p>This provides a pruning search that cuts short searches where possible when
+nothing better could be possibly encountered</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithms.alphabeta.AlphaBeta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithms.alphabeta.</span></span><span class="sig-name descname"><span class="pre">AlphaBeta</span></span><a class="headerlink" href="#algorithms.alphabeta.AlphaBeta" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithms.search.Search" title="algorithms.search.Search"><code class="xref py py-class docutils literal notranslate"><span class="pre">algorithms.search.Search</span></code></a></p>
+<p>Implements a basic Alpha-Beta pruning search
+Meant to cut down on searches needed by keeping track
+of the min and max encountered in past branches</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithms.alphabeta.AlphaBeta.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_terminal_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_result_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">searched_nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithms.alphabeta.AlphaBeta.search" title="Permalink to this definition"></a></dt>
+<dd><p>Overrides Search.search</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-algorithms.minimax"></span><p>Method implements a minimax search algorithm</p>
+<p>This algorithm will find the best move if given unlimited time and depth,
+but could take a while. Limiting the depth or time will result in faster
+calculation times, but could result in less-than-optimal moves</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithms.minimax.Minimax">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithms.minimax.</span></span><span class="sig-name descname"><span class="pre">Minimax</span></span><a class="headerlink" href="#algorithms.minimax.Minimax" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithms.search.Search" title="algorithms.search.Search"><code class="xref py py-class docutils literal notranslate"><span class="pre">algorithms.search.Search</span></code></a></p>
+<p>Minimax Search algorithm, basically portrays a state graph that assumes that
+both players are playing optimally. Maximizes score during maximizing turns,
+minimizes scoring during minimizing turns</p>
+<p>Minimax(state, depth, time) =
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>EVAL(state, depth, time)        if game is in a terminal state,</dt><dd><p>or depth/time limit reached</p>
+</dd>
+<dt>maximizing_action Minimax(Result(state, action), next_depth, next_time)</dt><dd><p>if maximizing turn</p>
+</dd>
+<dt>minimizing_action Minimax(Result(state, action), next_depth, next_time)</dt><dd><p>if minimizing turn</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>}</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithms.minimax.Minimax.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_terminal_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_result_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">searched_nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithms.minimax.Minimax.search" title="Permalink to this definition"></a></dt>
+<dd><p>Overrides Search.search</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-algorithms.random_choice"></span><p>Provides a random choice search algorithm</p>
+<p>This random choice will just pick a random legal move to take
+if one exists</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithms.random_choice.RandomChoice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithms.random_choice.</span></span><span class="sig-name descname"><span class="pre">RandomChoice</span></span><a class="headerlink" href="#algorithms.random_choice.RandomChoice" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithms.search.Search" title="algorithms.search.Search"><code class="xref py py-class docutils literal notranslate"><span class="pre">algorithms.search.Search</span></code></a></p>
+<p>A random choice ‘search’ algorithm that just returns any of the available moves</p>
+<p>RandomChoice(state,depth, time) =
+{</p>
+<blockquote>
+<div><p>random(actions(state))</p>
+</div></blockquote>
+<p>}</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithms.random_choice.RandomChoice.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_terminal_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_result_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">searched_nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithms.random_choice.RandomChoice.search" title="Permalink to this definition"></a></dt>
+<dd><p>Overrides Search.search</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-algorithms.search"></span><p>Provides an interface for adversarial searches. Implementing classes
+will provide an algorithm for searching through some state graph for
+a score and suggested move to make through the graph</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithms.search.Search">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithms.search.</span></span><span class="sig-name descname"><span class="pre">Search</span></span><a class="headerlink" href="#algorithms.search.Search" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interface for Search algorithms</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithms.search.Search.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_terminal_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_result_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">searched_nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_remaining</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithms.search.Search.search" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method returns a search result indicating a recommended move</dt><dd><p>and associated score</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>searched_nodes</strong> – maintains a tree of searched nodes during search</p></li>
+<li><p><strong>is_terminal_fn</strong> – a function that returns true when a termination condition
+is fulfilled</p></li>
+<li><p><strong>state_result_fn</strong> – a function that returns the next state given an action</p></li>
+<li><p><strong>actions_fn</strong> – a function that returns available actions given a state</p></li>
+<li><p><strong>eval_fn</strong> – a function that returns an evaluation score on a given state</p></li>
+<li><p><strong>state</strong> – the current state of the game</p></li>
+<li><p><strong>depth_remaining</strong> – the tree depth remaining to continue searching,
+if it hits 0, search should just return the best result</p></li>
+<li><p><strong>time_remaining</strong> – the remaining time to continue searching,
+if the time hits 0, search should just return the best result</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple of score, move to make</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-utils.node"></span><p>Node class, can be assembled into a tree</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.node.DummyNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.node.</span></span><span class="sig-name descname"><span class="pre">DummyNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.DummyNode" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#utils.node.Node" title="utils.node.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">utils.node.Node</span></code></a></p>
+<p>A dummy node for a tree–these nodes are essentially dead-ends
+and are meant to provide something to pass that does nothing
+when holding on to that memory is unneeded</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.DummyNode.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.DummyNode.add_child" title="Permalink to this definition"></a></dt>
+<dd><p>Dummy Node, don’t add child</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>node_value</strong> – ignore</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dummy node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.DummyNode.debug_out">
+<span class="sig-name descname"><span class="pre">debug_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.DummyNode.debug_out" title="Permalink to this definition"></a></dt>
+<dd><p>Override, just return ‘Dummy’ string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.DummyNode.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.DummyNode.find" title="Permalink to this definition"></a></dt>
+<dd><p>Don’t bother searching</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>val</strong> – search parameter</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.DummyNode.get_children">
+<span class="sig-name descname"><span class="pre">get_children</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.DummyNode.get_children" title="Permalink to this definition"></a></dt>
+<dd><p>Return an empty list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>empty list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.DummyNode.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.DummyNode.get_value" title="Permalink to this definition"></a></dt>
+<dd><p>Getter for  dummy value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.DummyNode.is_leaf">
+<span class="sig-name descname"><span class="pre">is_leaf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#utils.node.DummyNode.is_leaf" title="Permalink to this definition"></a></dt>
+<dd><p>Always return true, no children</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.node.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.node.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.Node" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A node in a tree</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.Node.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.Node.add_child" title="Permalink to this definition"></a></dt>
+<dd><p>Add a new node as a child of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>node_value</strong> – the node value to be wrapped in a node and added as
+a child of this node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the newly created node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.Node.debug_out">
+<span class="sig-name descname"><span class="pre">debug_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.Node.debug_out" title="Permalink to this definition"></a></dt>
+<dd><p>A debugging printer, prints a formatted tree
+:return: void</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.Node.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.Node.find" title="Permalink to this definition"></a></dt>
+<dd><p>Method searches for a given value within this node and its children</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>val</strong> – the value being searched for</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the node containing the value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.Node.get_children">
+<span class="sig-name descname"><span class="pre">get_children</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.Node.get_children" title="Permalink to this definition"></a></dt>
+<dd><p>Getter for children list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the list of children for this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.Node.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.node.Node.get_value" title="Permalink to this definition"></a></dt>
+<dd><p>Getter for value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the value of this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.node.Node.is_leaf">
+<span class="sig-name descname"><span class="pre">is_leaf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#utils.node.Node.is_leaf" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns true if this node is a leaf</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this node has no children, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
