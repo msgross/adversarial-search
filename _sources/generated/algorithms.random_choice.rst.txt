@@ -1,4 +1,4 @@
-algorithms.random\_choice
+﻿algorithms.random\_choice
 =========================
 
 .. automodule:: algorithms.random_choice

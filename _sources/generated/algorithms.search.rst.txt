@@ -1,4 +1,4 @@
-algorithms.search
+﻿algorithms.search
 =================
 
 .. automodule:: algorithms.search

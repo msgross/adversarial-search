@@ -1,4 +1,4 @@
-algorithms.minimax
+﻿algorithms.minimax
 ==================
 
 .. automodule:: algorithms.minimax

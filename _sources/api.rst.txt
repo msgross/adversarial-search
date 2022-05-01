@@ -5,8 +5,12 @@ API
     :toctree:   generated
     :recursive:
 
-    algorithms
-    utils
+    algorithms.search
+    algorithms.alphabeta
+    algorithms.minimax
+    algorithms.random_choice
+    utils.search
+    utils.node
 
 .. automodule:: algorithms.alphabeta
     :members:
